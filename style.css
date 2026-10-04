@@ -1,3 +1,11 @@
+/* ==========================================================================
+   1. БАЗОВЫЕ СТИЛИ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ (MOBILE FIRST)
+   ========================================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -7,85 +15,114 @@ body {
     color: #333;
 }
 
-/* Шапка и Подвал (тянутся на всю ширину окна) */
-#main-header, #main-footer {
+/* На мобильных устройствах блоки занимают 100% ширины экрана */
+#main-header, 
+#main-nav, 
+#main-content, 
+#main-footer {
     width: 100%;
-    background-color: #4a90e2;
-    color: white;
 }
 
-/* Ограничение ширины контента и меню до 960px с центрированием */
 .container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 15px 20px;
-    box-sizing: border-box;
+    width: 100%;
+    padding: 15px;
 }
 
-/* Меню навигации */
+/* --- НАВИГАЦИЯ (Вертикальный список на смартфонах) --- */
 #main-nav {
     background-color: #357abd;
 }
 
 #main-nav .container {
     display: flex;
-    justify-content: flex-end;
-    gap: 20px;
+    flex-direction: column; /* Вертикальное меню */
+    align-items: stretch;
+    padding: 10px 15px;
 }
 
 #main-nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
 }
 
-#main-nav a:hover {
-    text-decoration: underline;
+#main-nav a:last-child {
+    border-bottom: none;
 }
 
-/* Блок бренда (Логотип и Название) */
+/* --- ШАПКА --- */
+#main-header {
+    background-color: #4a90e2;
+    color: white;
+}
+
 .header-brand {
     display: flex;
     align-items: center;
-    gap: 20px;
+    justify-content: center;
+    gap: 15px;
 }
 
 .logo-img {
-    width: 60px;
-    height: auto;
-    max-height: 60px;
-    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .site-title {
     margin: 0;
-    font-size: 24px;
+    font-size: 20px;
 }
 
-/* Основной контент */
+/* --- ОСНОВНОЙ КОНТЕНТ И FLEXBOX ORDER --- */
 #main-content {
     background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column; /* Колоночный порядок для порядка элементов */
 }
 
-/* Секции */
+/* 
+   По ТЗ Третьего задания:
+   На смартфонах таблица (#table) должна отображаться ВЫШЕ списка ссылок (#links).
+*/
+#table {
+    order: 1; /* Таблица отображается первой */
+}
+
+#links {
+    order: 2; /* Список ссылок отображается вторым */
+}
+
+#form {
+    order: 3; /* Форма отображается третьей */
+}
+
 .content-section {
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
-/* Таблица */
+/* --- ТАБЛИЦА --- */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto; /* Горизонтальная прокрутка таблицы на узких экранах */
+}
+
 .data-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 15px;
 }
 
-.data-table th, .data-table td {
+.data-table th, 
+.data-table td {
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 8px;
     text-align: left;
+    font-size: 14px;
 }
 
 .data-table th {
@@ -93,7 +130,7 @@ body {
     color: white;
 }
 
-/* Различный фон четных и нечетных строк */
+/* Чередование цвета строк */
 .data-table tbody tr:nth-child(odd) {
     background-color: #ffffff;
 }
@@ -102,7 +139,7 @@ body {
     background-color: #f2f2f2;
 }
 
-/* Стили для формы из Задания 1 */
+/* --- ФОРМА --- */
 .form-group {
     margin-bottom: 15px;
 }
@@ -119,8 +156,9 @@ body {
 .form-group input[type="date"],
 .form-group textarea,
 .form-group select {
-    width: 300px;
-    padding: 5px;
+    width: 100%; /* Поля во всю ширину на смартфонах */
+    max-width: 100%;
+    padding: 8px;
     box-sizing: border-box;
 }
 
@@ -129,7 +167,85 @@ body {
     font-weight: normal !important;
 }
 
-/* Подвал */
+/* --- ПОДВАЛ --- */
 #main-footer {
-    text-align: left;
+    background-color: #4a90e2;
+    color: white;
+    text-align: center;
+}
+
+
+/* ==========================================================================
+   2. МЕДИАЗАПРОСЫ ДЛЯ ПЛАНШЕТОВ И ДЕСКТОПОВ (min-width: 768px)
+   ========================================================================== */
+@media (min-width: 768px) {
+    /* Ограничение ширины до 960px и центрирование */
+    .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 15px 20px;
+    }
+
+    /* Навигация становится горизонтальной */
+    #main-nav .container {
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 20px;
+    }
+
+    #main-nav a {
+        padding: 0;
+        border-bottom: none;
+    }
+
+    #main-nav a:hover {
+        text-decoration: underline;
+    }
+
+    /* Шапка */
+    .header-brand {
+        justify-content: flex-start;
+    }
+
+    .logo-img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .site-title {
+        font-size: 24px;
+    }
+
+    /* Возвращаем исходный порядок для больших экранов */
+    #links {
+        order: 1; /* Список ссылок идет первым */
+    }
+
+    #table {
+        order: 2; /* Таблица идет второй */
+    }
+
+    #form {
+        order: 3; /* Форма третьей */
+    }
+
+    #main-content {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Ограничение ширины инпутов */
+    .form-group input[type="text"],
+    .form-group input[type="tel"],
+    .form-group input[type="email"],
+    .form-group input[type="date"],
+    .form-group textarea,
+    .form-group select {
+        width: 300px;
+    }
+
+    #main-footer {
+        text-align: left;
+    }
 }
