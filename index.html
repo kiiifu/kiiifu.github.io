@@ -2,202 +2,117 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Работа 2</title>
-    <link rel="stylesheet" href="style.css">
+    <title>работа 1</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.5; }
+        li { margin-bottom: 10px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; }
+        input[type="text"], input[type="tel"], input[type="email"], input[type="date"], textarea, select { width: 300px; padding: 5px; }
+    </style>
 </head>
 <body>
 
-    <nav id="main-nav">
-        <div class="container">
-            <a href="#links">Ссылка меню 1</a>
-            <a href="#table">Ссылка 2</a>
-            <a href="#form">Ссылка 3</a>
+    <h1>Список гиперссылок</h1>
+    <ul>
+        <li><a href="http://kubsu.ru/">Абсолютная на главную kubsu.ru</a></li>
+        <li><a href="https://kubsu.ru/">Абсолютная на главную в протоколе https</a></li>
+        <li>
+            <a href="https://kubsu.ru/">
+                <img src="https://www.kubsu.ru/sites/all/themes/portal_kubsu/logo.png" alt="Картинка КубГУ" width="200">
+            </a>
+        </li>
+        <li><a href="/internal-page">Сокращенная на внутреннюю страницу</a></li>
+        <li><a href="/">Сокращенная на главную</a></li>
+        <li><a href="#fragment">Ссылка на фрагмент текущей страницы</a></li>
+        <li><a href="?param1=1&param2=2&param3=3">Ссылка с тремя параметрами в URL</a></li>
+        <li><a href="?id=123">Ссылка с параметром id в URL</a></li>
+        <li><a href="page.html">Относительная на страницу в текущем каталоге</a></li>
+        <li><a href="about/page.html">Относительная на страницу в каталоге about</a></li>
+        <li><a href="../page.html">Относительная на страницу в каталоге выше</a></li>
+        <li><a href="../../page.html">Относительная на страницу в каталоге двумя уровнями выше</a></li>
+        <li>Это просто текст, а вот <a href="https://kubsu.ru/">контекстная ссылка внутри текста</a>.</li>
+        <li><a href="https://ru.wikipedia.org/wiki/HTML#История">Ссылка на фрагмент стороннего сайта</a></li>
+        <li>
+            <p>Карта-картинка (нажми на левую или правую часть):</p>
+            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='150'><rect x='0' y='0' width='150' height='150' fill='%234a90e2'/><rect x='150' y='0' width='150' height='150' fill='%23e74c3c'/><text x='75' y='80' font-size='20' fill='white' text-anchor='middle' font-family='sans-serif'>ЛЕВО</text><text x='225' y='80' font-size='20' fill='white' text-anchor='middle' font-family='sans-serif'>ПРАВО</text></svg>" 
+                alt="Карта" 
+                usemap="#workmap" 
+                width="300" 
+                height="150">
+
+            <map name="workmap">
+                <!-- Левая половина (прямоугольник 0,0 до 150,150) ведет на КубГУ -->
+                <area shape="rect" coords="0,0,150,150" alt="Лево" href="https://kubsu.ru/" title="Перейти на kubsu.ru">
+                <!-- Правая половина (круг с центром (225,75) и радиусом 50 или прямоугольник 150,0 до 300,150) ведет на Google -->
+                <area shape="rect" coords="150,0,300,150" alt="Право" href="https://www.google.com/" title="Перейти на Google">
+            </map>
+        </li>
+        <li><a href="">Ссылка с пустым href</a></li>
+        <li><a>Ссылка без href</a></li>
+        <li><a href="https://example.com" rel="nofollow">Ссылка с rel="nofollow"</a></li>
+        <li><a href="https://example.com" rel="noindex">Ссылка с rel="noindex"</a></li>
+        <li>
+            <p>Нумерованный список ссылок:</p>
+            <ol>
+                <li><a href="https://kubsu.ru/" title="Главная">Первая ссылка</a></li>
+                <li><a href="https://kubsu.ru/about" title="О нас">Вторая ссылка</a></li>
+                <li><a href="https://kubsu.ru/contacts" title="Контакты">Третья ссылка</a></li>
+            </ol>
+        </li>
+        <li><a href="ftp://login:password@ftp.example.com/file.zip">Ссылка на файл на FTP</a></li>
+    </ul>
+
+    <h1>Форма</h1>
+    <form action="#" method="post">
+        <div class="form-group">
+            <label>ФИО:</label>
+            <input type="text" name="fio" required autofocus>
         </div>
-    </nav>
-
-    <header id="main-header">
-        <div class="container header-brand">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0IIsPfjlutuiKkA7x9hN9tVNDZ5_X-w11E8PqExzD-g&s=10" alt="Логотип" class="logo-img">
-            <h1 class="site-title">Название сайта</h1>
+        <div class="form-group">
+            <label>Телефон:</label>
+            <input type="tel" name="phone">
         </div>
-    </header>
-
-    <main id="main-content" class="container">
-
-        <section id="links" class="content-section">
-            <h2>Список гиперссылок</h2>
-            <ul>
-                <li><a href="http://kubsu.ru/">Абсолютная на главную kubsu.ru</a></li>
-                <li><a href="https://kubsu.ru/">Абсолютная на главную в протоколе https</a></li>
-                <li>
-                    <a href="https://kubsu.ru/">
-                        <img src="https://www.kubsu.ru/sites/all/themes/portal_kubsu/logo.png" alt="Картинка КубГУ" width="200">
-                    </a>
-                </li>
-                <li><a href="/internal-page">Сокращенная на внутреннюю страницу</a></li>
-                <li><a href="/">Сокращенная на главную</a></li>
-                <li><a href="#fragment">Ссылка на фрагмент текущей страницы</a></li>
-                <li><a href="?param1=1&amp;param2=2&amp;param3=3">Ссылка с тремя параметрами в URL</a></li>
-                <li><a href="?id=123">Ссылка с параметром id в URL</a></li>
-                <li><a href="page.html">Относительная на страницу в текущем каталоге</a></li>
-                <li><a href="about/page.html">Относительная на страницу в каталоге about</a></li>
-                <li><a href="../page.html">Относительная на страницу в каталоге выше</a></li>
-                <li><a href="../../page.html">Относительная на страницу в каталоге двумя уровнями выше</a></li>
-                <li>Это просто текст, а вот <a href="https://kubsu.ru/">контекстная ссылка внутри текста</a>.</li>
-                <li><a href="https://ru.wikipedia.org/wiki/HTML#История">Ссылка на фрагмент стороннего сайта</a></li>
-                <li>
-                    <p>Карта-картинка (нажми на левую или правую часть):</p>
-                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='150'><rect x='0' y='0' width='150' height='150' fill='%234a90e2'/><rect x='150' y='0' width='150' height='150' fill='%23e74c3c'/><text x='75' y='80' font-size='20' fill='white' text-anchor='middle' font-family='sans-serif'>ЛЕВО</text><text x='225' y='80' font-size='20' fill='white' text-anchor='middle' font-family='sans-serif'>ПРАВО</text></svg>" 
-                         alt="Карта" 
-                         usemap="#workmap" 
-                         width="300" 
-                         height="150">
-
-                    <map name="workmap">
-                        <!-- Левая половина (прямоугольник 0,0 до 150,150) ведет на КубГУ -->
-                        <area shape="rect" coords="0,0,150,150" alt="Лево" href="https://kubsu.ru/" title="Перейти на kubsu.ru">
-                        <!-- Правая половина (круг с центром (225,75) и радиусом 50 или прямоугольник 150,0 до 300,150) ведет на Google -->
-                        <area shape="rect" coords="150,0,300,150" alt="Право" href="https://www.google.com/" title="Перейти на Google">
-                    </map>
-                </li>
-                <li><a href="">Ссылка с пустым href</a></li>
-                <li><a>Ссылка без href</a></li>
-                <li><a href="https://example.com" rel="nofollow">Ссылка с rel="nofollow"</a></li>
-                <li><a href="https://example.com" rel="noindex">Ссылка с rel="noindex"</a></li>
-                <li>
-                    <p>Нумерованный список ссылок:</p>
-                    <ol>
-                        <li><a href="https://kubsu.ru/" title="Главная">Первая ссылка</a></li>
-                        <li><a href="https://kubsu.ru/about" title="О нас">Вторая ссылка</a></li>
-                        <li><a href="https://kubsu.ru/contacts" title="Контакты">Третья ссылка</a></li>
-                    </ol>
-                </li>
-                <li><a href="ftp://login:password@ftp.example.com/file.zip">Ссылка на файл на FTP</a></li>
-            </ul>
-        </section>
-
-        <section id="table" class="content-section">
-            <h2>Таблица</h2>
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Колонка 1</th>
-                        <th>Колонка 2</th>
-                        <th>Колонка 3</th>
-                        <th>Колонка 4</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td rowspan="2">Объединенные 2 строки</td>
-                        <td>Ячейка 1-2</td>
-                        <td>Ячейка 1-3</td>
-                        <td>Ячейка 1-4</td>
-                    </tr>
-                    <tr>
-                        <td>Ячейка 2-2</td>
-                        <td colspan="2">Объединенные 2 колонки</td>
-                    </tr>
-                    <tr>
-                        <td>Ячейка 3-1</td>
-                        <td>Ячейка 3-2</td>
-                        <td>Ячейка 3-3</td>
-                        <td>Ячейка 3-4</td>
-                    </tr>
-                    <tr>
-                        <td>Ячейка 4-1</td>
-                        <td>Ячейка 4-2</td>
-                        <td>Ячейка 4-3</td>
-                        <td>Ячейка 4-4</td>
-                    </tr>
-                    <tr>
-                        <td>Ячейка 5-1</td>
-                        <td>Ячейка 5-2</td>
-                        <td>Ячейка 5-3</td>
-                        <td>Ячейка 5-4</td>
-                    </tr>
-                    <tr>
-                        <td>Ячейка 6-1</td>
-                        <td>Ячейка 6-2</td>
-                        <td>Ячейка 6-3</td>
-                        <td>Ячейка 6-4</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <section id="form" class="content-section">
-            <h2>Форма</h2>
-            <form action="#" method="post">
-                <div class="form-group">
-                    <label for="fio">ФИО:</label>
-                    <input type="text" id="fio" name="fio" required autofocus>
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">Телефон:</label>
-                    <input type="tel" id="phone" name="phone">
-                </div>
-
-                <div class="form-group">
-                    <label for="email">E-mail:</label>
-                    <input type="email" id="email" name="email">
-                </div>
-
-                <div class="form-group">
-                    <label for="birthdate">Дата рождения:</label>
-                    <input type="date" id="birthdate" name="birthdate">
-                </div>
-
-                <div class="form-group">
-                    <label>Пол:</label>
-                    <input type="radio" id="male" name="gender" value="male">
-                    <label for="male" class="inline-label">Мужской</label>
-                    <input type="radio" id="female" name="gender" value="female">
-                    <label for="female" class="inline-label">Женский</label>
-                </div>
-
-                <div class="form-group">
-                    <label for="langs">Любимый язык программирования (зажмите Ctrl, чтобы выбрать несколько):</label>
-                    <select id="langs" name="langs[]" multiple size="6">
-                        <option value="Pascal">Pascal</option>
-                        <option value="C">C</option>
-                        <option value="C++">C++</option>
-                        <option value="JavaScript">JavaScript</option>
-                        <option value="PHP">PHP</option>
-                        <option value="Python">Python</option>
-                        <option value="Java">Java</option>
-                        <option value="Haskell">Haskell</option>
-                        <option value="Clojure">Clojure</option>
-                        <option value="Prolog">Prolog</option>
-                        <option value="Scala">Scala</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="bio">Биография:</label>
-                    <textarea id="bio" name="bio" rows="5"></textarea>
-                </div>
-
-                <div class="form-group">
-                    <input type="checkbox" id="contract" name="contract">
-                    <label for="contract" class="inline-label">С контрактом ознакомлен(а)</label>
-                </div>
-
-                <div class="form-group">
-                    <button type="submit">Сохранить</button>
-                </div>
-            </form>
-        </section>
-
-    </main>
-
-    <footer id="main-footer">
-        <div class="container">
-            <p>(c) Сергей Синица</p>
+        <div class="form-group">
+            <label>E-mail:</label>
+            <input type="email" name="email">
         </div>
-    </footer>
+        <div class="form-group">
+            <label>Дата рождения:</label>
+            <input type="date" name="birthdate">
+        </div>
+        <div class="form-group">
+            <label>Пол:</label>
+            <input type="radio" id="male" name="gender" value="male"> <label for="male" style="display:inline;">Мужской</label>
+            <input type="radio" id="female" name="gender" value="female"> <label for="female" style="display:inline;">Женский</label>
+        </div>
+        <div class="form-group">
+            <label>Любимый язык программирования (зажми Ctrl, чтобы выбрать несколько):</label>
+            <select name="langs[]" multiple size="6">
+                <option value="Pascal">Pascal</option>
+                <option value="C">C</option>
+                <option value="C++">C++</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="PHP">PHP</option>
+                <option value="Python">Python</option>
+                <option value="Java">Java</option>
+                <option value="Haskell">Haskell</option>
+                <option value="Clojure">Clojure</option>
+                <option value="Prolog">Prolog</option>
+                <option value="Scala">Scala</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Биография:</label>
+            <textarea name="bio" rows="5"></textarea>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" id="contract" name="contract"> <label for="contract" style="display:inline;">С контрактом ознакомлен (а)</label>
+        </div>
+        <div class="form-group">
+            <button type="submit">Сохранить</button>
+        </div>
+    </form>
 
 </body>
 </html>
