@@ -48,18 +48,18 @@
                 <li><a href="https://ru.wikipedia.org/wiki/HTML#История">Ссылка на фрагмент стороннего сайта</a></li>
                 <li>
                     <p>Карта-картинка (нажми на левую или правую часть):</p>
-                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='150'><rect x='0' y='0' width='150' height='150' fill='%234a90e2'/><rect x='150' y='0' width='150' height='150' fill='%23e74c3c'/><text x='75' y='80' font-size='20' fill='white' text-anchor='middle' font-family='sans-serif'>ЛЕВО</text><text x='225' y='80' font-size='20' fill='white' text-anchor='middle' font-family='sans-serif'>ПРАВО</text></svg>" 
-                         alt="Карта" 
-                         usemap="#workmap" 
-                         width="300" 
-                         height="150">
+<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='150'><rect x='0' y='0' width='150' height='150' fill='%234a90e2'/><circle cx='225' cy='75' r='70' fill='%23e74c3c'/><text x='75' y='80' font-size='20' fill='white' text-anchor='middle' font-family='sans-serif'>ЛЕВО</text><text x='225' y='80' font-size='20' fill='white' text-anchor='middle' font-family='sans-serif'>ПРАВО</text></svg>"
+     alt="Карта"
+     usemap="#workmap"
+     width="300"
+     height="150">
 
-                    <map name="workmap">
-                        <!-- Левая половина (прямоугольник 0,0 до 150,150) ведет на КубГУ -->
-                        <area shape="rect" coords="0,0,150,150" alt="Лево" href="https://kubsu.ru/" title="Перейти на kubsu.ru">
-                        <!-- Правая половина (круг с центром (225,75) и радиусом 50 или прямоугольник 150,0 до 300,150) ведет на Google -->
-                        <area shape="rect" coords="150,0,300,150" alt="Право" href="https://www.google.com/" title="Перейти на Google">
-                    </map>
+<map name="workmap">
+    <!-- Левая половина (прямоугольник 0,0 до 150,150) ведет на КубГУ -->
+    <area shape="rect" coords="0,0,150,150" alt="Лево" href="https://kubsu.ru/" title="Перейти на kubsu.ru">
+    <!-- Правая часть: круг с центром (225,75) и радиусом 70 ведет на Google -->
+    <area shape="circle" coords="225,75,70" alt="Право" href="https://www.google.com/" title="Перейти на Google">
+</map>
                 </li>
                 <li><a href="">Ссылка с пустым href</a></li>
                 <li><a>Ссылка без href</a></li>
