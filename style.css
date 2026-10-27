@@ -8,7 +8,7 @@ body {
 }
 
 /* Шапка и Подвал (тянутся на всю ширину окна) */
-#main-header, #main-footer {
+#main-header. container, #main-footer. container {
     width: 100%;
     background-color: #4a90e2;
     color: white;
@@ -16,8 +16,8 @@ body {
 
 /* Ограничение ширины контента и меню до 960px с центрированием */
 .container {
-    max-width: 960px;
-    margin: 0 auto;
+    max-width: none;
+    margin: 0;
     padding: 15px 20px;
     box-sizing: border-box;
 }
