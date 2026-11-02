@@ -11,35 +11,37 @@
     <main class="page">
         <h1>Галерея</h1>
 
-        <div class="gallery">
-            <button type="button" class="arrow" id="prev" aria-label="Назад">
-                <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
-                    <path d="M15 4 L7 12 L15 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
+        <div class="content">
+            <div class="gallery">
+                <button type="button" class="arrow" id="prev" aria-label="Назад">
+                    <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+                        <path d="M15 4 L7 12 L15 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
 
-            <div class="viewport">
-                <ul class="track" id="track">
-                    <li class="slide"><img src="images/1.svg" alt="Изображение 1" width="400" height="400"></li>
-                    <li class="slide"><img src="images/2.svg" alt="Изображение 2" width="400" height="400"></li>
-                    <li class="slide"><img src="images/3.svg" alt="Изображение 3" width="400" height="400"></li>
-                    <li class="slide"><img src="images/4.svg" alt="Изображение 4" width="400" height="400"></li>
-                    <li class="slide"><img src="images/5.svg" alt="Изображение 5" width="400" height="400"></li>
-                    <li class="slide"><img src="images/6.svg" alt="Изображение 6" width="400" height="400"></li>
-                    <li class="slide"><img src="images/7.svg" alt="Изображение 7" width="400" height="400"></li>
-                    <li class="slide"><img src="images/8.svg" alt="Изображение 8" width="400" height="400"></li>
-                </ul>
+                <div class="viewport">
+                    <ul class="track" id="track">
+                        <li class="slide"><img src="images/1.svg" alt="Изображение 1" width="400" height="400"></li>
+                        <li class="slide"><img src="images/2.svg" alt="Изображение 2" width="400" height="400"></li>
+                        <li class="slide"><img src="images/3.svg" alt="Изображение 3" width="400" height="400"></li>
+                        <li class="slide"><img src="images/4.svg" alt="Изображение 4" width="400" height="400"></li>
+                        <li class="slide"><img src="images/5.svg" alt="Изображение 5" width="400" height="400"></li>
+                        <li class="slide"><img src="images/6.svg" alt="Изображение 6" width="400" height="400"></li>
+                        <li class="slide"><img src="images/7.svg" alt="Изображение 7" width="400" height="400"></li>
+                        <li class="slide"><img src="images/8.svg" alt="Изображение 8" width="400" height="400"></li>
+                    </ul>
+                </div>
+
+                <button type="button" class="arrow" id="next" aria-label="Вперёд">
+                    <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+                        <path d="M9 4 L17 12 L9 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
             </div>
 
-            <button type="button" class="arrow" id="next" aria-label="Вперёд">
-                <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
-                    <path d="M9 4 L17 12 L9 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
+            <div class="pager" id="pager"></div>
+            <p class="status" id="status" aria-live="polite"></p>
         </div>
-
-        <div class="pager" id="pager"></div>
-        <p class="status" id="status" aria-live="polite"></p>
     </main>
 </body>
 </html>
