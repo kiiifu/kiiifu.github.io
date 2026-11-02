@@ -1,135 +1,108 @@
 body {
     margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    line-height: 1.5;
+    padding: 16px;
     background-color: #f4f4f9;
-    color: #333;
+    font-family: Arial, sans-serif;
 }
 
-/* Шапка и Подвал (тянутся на всю ширину окна) */
-#main-header, #main-footer {
-    width: 100%;
-    background-color: #4a90e2;
-    color: white;
-}
-
-/* Ограничение ширины контента и меню до 960px с центрированием */
-.container {
+.page {
     max-width: 960px;
     margin: 0 auto;
-    padding: 15px 20px;
-    box-sizing: border-box;
 }
 
-/* Меню навигации */
-#main-nav {
-    background-color: #357abd;
+h1 {
+    text-align: center;
 }
 
-#main-nav .container {
-    display: flex;
-    justify-content: flex-end;
-    gap: 20px;
-}
-
-#main-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-#main-nav a:hover {
-    text-decoration: underline;
-}
-
-/* Блок бренда (Логотип и Название) */
-.header-brand {
+.gallery {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 8px;
 }
 
-.logo-img {
-    width: 60px;
-    height: auto;
-    max-height: 60px;
-    vertical-align: middle;
+/* Окно, в котором видны только 3 изображения (или 1 на смартфоне) */
+.viewport {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
 }
 
-.site-title {
+.track {
+    display: flex;
     margin: 0;
-    font-size: 24px;
+    padding: 0;
+    list-style: none;
+    transition: transform 0.4s ease;
 }
 
-/* Основной контент */
-#main-content {
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-/* Секции */
-.content-section {
-    margin-bottom: 30px;
-}
-
-/* Таблица */
-.data-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-}
-
-.data-table th, .data-table td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: left;
-}
-
-.data-table th {
-    background-color: #357abd;
-    color: white;
-}
-
-/* Различный фон четных и нечетных строк */
-.data-table tbody tr:nth-child(odd) {
-    background-color: #ffffff;
-}
-
-.data-table tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-/* Стили для формы из Задания 1 */
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.form-group input[type="text"],
-.form-group input[type="tel"],
-.form-group input[type="email"],
-.form-group input[type="date"],
-.form-group textarea,
-.form-group select {
-    width: 300px;
-    padding: 5px;
+/* Три изображения в ряд: каждое занимает треть ширины */
+.slide {
+    flex: 0 0 33.3333%;
     box-sizing: border-box;
+    padding: 0 6px;
 }
 
-.inline-label {
-    display: inline !important;
-    font-weight: normal !important;
+.slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
 }
 
-/* Подвал */
-#main-footer {
-    text-align: left;
+.arrow {
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background-color: #357abd;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.arrow:hover {
+    background-color: #2a6099;
+}
+
+.pager {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.dot {
+    width: 14px;
+    height: 14px;
+    padding: 0;
+    border: 2px solid #357abd;
+    border-radius: 50%;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #357abd;
+}
+
+.status {
+    margin: 8px 0 0;
+    text-align: center;
+    color: #555555;
+}
+
+/* Смартфоны: одно изображение на экране */
+@media (max-width: 767px) {
+    .slide {
+        flex-basis: 100%;
+    }
+
+    .arrow {
+        width: 36px;
+        height: 36px;
+    }
 }
