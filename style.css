@@ -136,7 +136,12 @@ body {
 
 /* Подвал */
 #main-footer {
-    max-width: none;
-    margin: 0;
+    background-color: #4a90e2;
+    color: white;
+    padding: 15px 20px;
     text-align: left;
 }
+#main-footer p {
+    margin: 0;
+}
+
