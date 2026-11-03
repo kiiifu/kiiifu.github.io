@@ -8,8 +8,7 @@ body {
 }
 
 /* Шапка и Подвал (тянутся на всю ширину окна) */
-#main-header. container, #main-footer. container {
-    width: 100%;
+#main-header, #main-footer {
     background-color: #4a90e2;
     color: white;
 }
