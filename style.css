@@ -28,8 +28,10 @@ body {
 
 #main-nav .container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 20px;
+    max-width: none;
+    margin: 0;
 }
 
 #main-nav a {
@@ -45,8 +47,11 @@ body {
 /* Блок бренда (Логотип и Название) */
 .header-brand {
     display: flex;
+    justify-content: flex-start;
     align-items: center;
     gap: 20px;
+    max-width: none;
+    margin: 0;
 }
 
 .logo-img {
@@ -131,5 +136,7 @@ body {
 
 /* Подвал */
 #main-footer {
+    max-width: none;
+    margin: 0;
     text-align: left;
 }
